@@ -40,33 +40,6 @@ namespace indenvsensor {
 	    return true
     }
 	
-    /* CJMCU-8118 HDC1080 Temp&Humidity sensor addr 0x40 register 0x00 return 2 bytes */
-    //% blockId="indenvgetTemp" block="IndEnv get Temperature"
-    //% blockGap=2 weight=78
-    export function indenvgetTemp(): number {
-	    pins.setPull(DigitalPin.P19, PinPullMode.PullUp)
-	    pins.setPull(DigitalPin.P20, PinPullMode.PullUp)
-	    basic.pause(200)
-	    pins.i2cWriteNumber(64,0,NumberFormat.UInt8LE,false)
-	    basic.pause(200)
-	    let Temperature = pins.i2cReadNumber(64, NumberFormat.UInt16BE, false)
-	    basic.pause(200)
-	    return Math.round(Temperature * 165 / 65536 - 40)
-    }
-
-    /* CJMCU-8118 HDC1080 Temp&Humidity sensor addr 0x40 register 0x00 return 2 bytes */
-    //% blockId="indenvgetHumid" block="IndEnv get Humidity"
-    //% blockGap=2 weight=77
-    export function indenvgetHumid(): number {
-	  pins.setPull(DigitalPin.P19, PinPullMode.PullUp)
-	  pins.setPull(DigitalPin.P20, PinPullMode.PullUp)
-	  basic.pause(200)
-	  pins.i2cWriteNumber(64,1,NumberFormat.UInt8LE,false)
-	  basic.pause(200)
-	  let Humidity = pins.i2cReadNumber(64, NumberFormat.UInt16BE, false)
-	  basic.pause(200)
-	  return Math.round(Humidity / 65536 * 100)
-    }
 
     /* CJMCU-8118 CCS811 read eCO2 addr 0x5A register 0x02 return 2 bytes */
     //% blockId="indenvgeteCO2" block="IndEnv get eCO2"
