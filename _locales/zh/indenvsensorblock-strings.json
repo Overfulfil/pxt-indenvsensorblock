@@ -1,8 +1,6 @@
 {
     "indenvsensor|block": "自訂",
     "indenvsensor.indenvStart|block": "啟動 IndEnv Sensor",
-    "indenvsensor.indenvgetTemp|block": "讀取 IndEnv get Temperature",
-    "indenvsensor.indenvgetHumid|block": "讀取 IndEnv get Humidity",
     "indenvsensor.indenvgeteCO2|block": "讀取 IndEnv get eCO2",
     "indenvsensor.indenvgetTVOC|block": "讀取 IndEnv get TVOC",
     "indenvsensor.indenvGasStatus|block": "讀取 IndEnv Gas Status",
